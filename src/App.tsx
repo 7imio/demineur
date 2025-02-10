@@ -1,9 +1,12 @@
 import Game from "./Components/Game";
+import GameProvider from "./Redux/GameProvider";
 
 function App() {
   return (
     <>
-      <Game />
+      <GameProvider>
+        <Game />
+      </GameProvider>
     </>
   );
 }

@@ -19,15 +19,20 @@ const initialState: GameState = {
 const storeSlice: CreateSliceOptions<
   GameState,
   {
-    setGridSize: (state: GameState, action: PayloadAction<Coordinates>) => void;
+    setGridSizeAction: (
+      state: GameState,
+      action: PayloadAction<Coordinates>
+    ) => void;
   }
 > = {
   name: "Demineur",
   initialState,
   reducers: {
-    setGridSize,
+    setGridSizeAction: setGridSize,
   },
 };
 
-export const gameSlice = createSlice(storeSlice);
+const gameSlice = createSlice(storeSlice);
+
+export const { setGridSizeAction } = gameSlice.actions;
 export default gameSlice.reducer;
