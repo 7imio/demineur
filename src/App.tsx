@@ -1,9 +1,9 @@
+import Game from "./Components/Game";
+
 function App() {
   return (
     <>
-      <div>
-        <p>Hello world</p>
-      </div>
+      <Game />
     </>
   );
 }
