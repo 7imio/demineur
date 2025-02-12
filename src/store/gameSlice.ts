@@ -3,9 +3,9 @@ import {
   CreateSliceOptions,
   PayloadAction,
 } from "@reduxjs/toolkit";
+import { setGridReducer } from '../Reducers/setGridReducer';
+import { GridDataPayload, setGridDataReducer } from "../Reducers/setGridSizeReducer";
 import { GameState } from "../interfaces/GameState";
-import { setGridSize } from "../Helpers/setGridSize";
-import { Coordinates } from "../interfaces/Coordinates";
 
 const initialState: GameState = {
   grid: [],
@@ -19,20 +19,24 @@ const initialState: GameState = {
 const storeSlice: CreateSliceOptions<
   GameState,
   {
-    setGridSizeAction: (
+    setGridData: (
       state: GameState,
-      action: PayloadAction<Coordinates>
+      action: PayloadAction<GridDataPayload>
     ) => void;
+    setGrid:(
+      state:GameState
+    )=>void
   }
 > = {
   name: "Demineur",
   initialState,
   reducers: {
-    setGridSizeAction: setGridSize,
+    setGridData: setGridDataReducer,
+    setGrid:setGridReducer,
   },
 };
 
 const gameSlice = createSlice(storeSlice);
 
-export const { setGridSizeAction } = gameSlice.actions;
+export const { setGridData , setGrid} = gameSlice.actions;
 export default gameSlice.reducer;
