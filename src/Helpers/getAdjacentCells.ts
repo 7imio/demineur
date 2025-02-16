@@ -1,7 +1,7 @@
 import { Cell } from "../interfaces/Cell";
 import { Grid } from "../interfaces/Grid";
 
-export const getAdgacentCells = (grid: Grid, cell: Cell): Cell[] => {
+export const getAdjacentCells = (grid: Grid, cell: Cell): Cell[] => {
   const { x, y } = cell;
   const adjacentCells: Cell[] = [];
 

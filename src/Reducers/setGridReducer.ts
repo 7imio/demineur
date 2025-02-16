@@ -1,5 +1,5 @@
 import { createCell } from "../Helpers/createCell";
-import { getAdgacentCells } from "../Helpers/getAdjacentCells";
+import { getAdjacentCells } from "../Helpers/getAdjacentCells";
 import { Cell } from "../interfaces/Cell";
 import { GameState } from "../interfaces/GameState";
 
@@ -33,7 +33,7 @@ export const setGridReducer = (state: GameState) => {
     row.forEach((cell) => {
       if (cell.isBomb) return;
       let bombs = 0;
-      const adjacentCells = getAdgacentCells(grid, cell);
+      const adjacentCells = getAdjacentCells(grid, cell);
       adjacentCells.forEach((adjacentCell: Cell) => {
         if (adjacentCell.isBomb) {
           bombs++;

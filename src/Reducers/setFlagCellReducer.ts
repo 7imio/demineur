@@ -8,6 +8,10 @@ export const setFlagCellReducer = (
 ): void => {
   const { x, y } = action.payload;
   const cell = state.grid[y][x];
+  if (!cell) {
+    console.error("Cell not found");
+    return;
+  }
   if (cell.isRevealed) return;
   cell.isFlagged = !cell.isFlagged;
 };
