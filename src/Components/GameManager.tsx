@@ -25,8 +25,8 @@ const GameManager: React.FC<GameProps> = () => {
 
   return (
     <>
-      <p className="p-4 t flex flex-row w-full align-center justify-center">
-        Hello World, {height} : {width} / {totalBombs}
+      <p className="p-4 text-2xl flex flex-row w-full align-center justify-center">
+        DEMINEUR
       </p>
       {grid && <Grid />}
     </>

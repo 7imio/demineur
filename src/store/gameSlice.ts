@@ -9,6 +9,9 @@ import {
   setGridDataReducer,
 } from "../Reducers/setGridDataReducer";
 import { GameState } from "../interfaces/GameState";
+import { setRevealCellReducer } from "../Reducers/setRevealCellReducer";
+import { CellPayload } from "../Reducers/interfaces/CellPayload";
+import { setFlagCellReducer } from "../Reducers/setFlagCellReducer";
 
 const initialState: GameState = {
   grid: [],
@@ -30,6 +33,11 @@ const storeSlice: CreateSliceOptions<
       action: PayloadAction<GridDataPayload>
     ) => void;
     setGrid: (state: GameState) => void;
+    setRevealCell: (
+      state: GameState,
+      action: PayloadAction<CellPayload>
+    ) => void;
+    setFlagCell: (state: GameState, action: PayloadAction<CellPayload>) => void;
   }
 > = {
   name: "Demineur",
@@ -37,10 +45,23 @@ const storeSlice: CreateSliceOptions<
   reducers: {
     setGridData: setGridDataReducer,
     setGrid: setGridReducer,
+    setRevealCell: setRevealCellReducer,
+    setFlagCell: setFlagCellReducer,
+    // setGameOver: setGameOverReducer,
+    // setPlaying: setPlayingReducer,
+    // setReset: setResetReducer,
   },
 };
 
 const gameSlice = createSlice(storeSlice);
 
-export const { setGridData, setGrid } = gameSlice.actions;
+export const {
+  setGridData,
+  setGrid,
+  setRevealCell,
+  setFlagCell,
+  // setGameOver,
+  // setPlaying,
+  // setReset,
+} = gameSlice.actions;
 export default gameSlice.reducer;

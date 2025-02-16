@@ -6,7 +6,10 @@ const Grid = () => {
   const { grid } = useSelector((state: RootState) => state.gameManager);
 
   return (
-    <div>
+    <div
+      onContextMenu={(e) => e.preventDefault()}
+      className="flex flex-col align-middle justify-center items-center"
+    >
       {grid.map((row, rowIndex) => (
         <div key={rowIndex} className="flex flex-row">
           {row.map((cell, cellIndex) => (
