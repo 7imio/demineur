@@ -12,6 +12,9 @@ import { GameState } from "../interfaces/GameState";
 import { setRevealCellReducer } from "../Reducers/setRevealCellReducer";
 import { CellPayload } from "../Reducers/interfaces/CellPayload";
 import { setFlagCellReducer } from "../Reducers/setFlagCellReducer";
+import { setResetReducer } from "../Reducers/setResetReducer";
+import { setPlayingReducer } from "../Reducers/setPlayingReducer";
+import { setGameOverReducer } from "../Reducers/setGameOverReducer";
 
 const initialState: GameState = {
   grid: [],
@@ -38,6 +41,9 @@ const storeSlice: CreateSliceOptions<
       action: PayloadAction<CellPayload>
     ) => void;
     setFlagCell: (state: GameState, action: PayloadAction<CellPayload>) => void;
+    setGameOver: (state: GameState, action: PayloadAction<boolean>) => void;
+    setPlaying: (state: GameState, action: PayloadAction<boolean>) => void;
+    setReset: (state: GameState) => void;
   }
 > = {
   name: "Demineur",
@@ -47,9 +53,9 @@ const storeSlice: CreateSliceOptions<
     setGrid: setGridReducer,
     setRevealCell: setRevealCellReducer,
     setFlagCell: setFlagCellReducer,
-    // setGameOver: setGameOverReducer,
-    // setPlaying: setPlayingReducer,
-    // setReset: setResetReducer,
+    setGameOver: setGameOverReducer,
+    setPlaying: setPlayingReducer,
+    setReset: setResetReducer,
   },
 };
 
@@ -60,8 +66,8 @@ export const {
   setGrid,
   setRevealCell,
   setFlagCell,
-  // setGameOver,
-  // setPlaying,
-  // setReset,
+  setGameOver,
+  setPlaying,
+  setReset,
 } = gameSlice.actions;
 export default gameSlice.reducer;
