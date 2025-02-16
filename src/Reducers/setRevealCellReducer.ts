@@ -7,6 +7,8 @@ export const setRevealCellReducer = (
   state: GameState,
   action: PayloadAction<CellPayload>
 ): void => {
+  if (state.gameOver) return;
+
   const { x, y } = action.payload;
   const cell = state.grid[y][x];
   if (!cell) {
@@ -17,7 +19,7 @@ export const setRevealCellReducer = (
   if (cell.isFlagged) return;
   cell.isRevealed = true;
   if (cell.isBomb) {
-    // state.gameOver = true;
+    state.gameOver = true;
   } else {
     if (cell.adjacentBombs === 0) {
       const adjacentCells = getAdjacentCells(state.grid, cell);
