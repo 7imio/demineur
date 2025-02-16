@@ -1,11 +1,11 @@
-import Game from "./Components/Game";
+import GameManager from "./Components/GameManager";
 import GameProvider from "./Redux/GameProvider";
 
 function App() {
   return (
     <>
       <GameProvider>
-        <Game />
+        <GameManager />
       </GameProvider>
     </>
   );
