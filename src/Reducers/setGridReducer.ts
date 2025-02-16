@@ -18,5 +18,14 @@ export const setGridReducer = (state: GameState) => {
     )
   );
 
+  let bombs = state.totalBombs;
+  while (bombs > 0) {
+    const x = Math.floor(Math.random() * state.width);
+    const y = Math.floor(Math.random() * state.height);
+    if (!grid[y][x].isBomb) {
+      grid[y][x].isBomb = true;
+      bombs--;
+    }
+  }
   state.grid = grid;
 };

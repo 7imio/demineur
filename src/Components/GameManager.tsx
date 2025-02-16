@@ -14,7 +14,7 @@ const GameManager: React.FC<GameProps> = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(setGridData({ width: 10, height: 10, totalBombs: 10 }));
+    dispatch(setGridData({ width: 15, height: 5, totalBombs: 10 }));
   }, [dispatch]);
 
   useEffect(() => {
