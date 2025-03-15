@@ -24,6 +24,7 @@ export const setGridReducer = (state: GameState) => {
   if (state.totalBombs > (state.height * state.width) / 2) {
     console.error("Too many bombs for the grid");
     bombs = Math.floor((state.height * state.width) / 2);
+    state.totalBombs = bombs;
   }
   while (bombs > 0) {
     const x = Math.floor(Math.random() * state.width);

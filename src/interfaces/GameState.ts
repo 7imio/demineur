@@ -7,4 +7,5 @@ export interface GameState {
   width: number;
   height: number;
   totalBombs: number;
+  flags: number;
 }

@@ -2,6 +2,7 @@ import { PayloadAction } from "@reduxjs/toolkit";
 import { GameState } from "../interfaces/GameState";
 import { CellPayload } from "./interfaces/CellPayload";
 import { getAdjacentCells } from "../Helpers/getAdjacentCells";
+import { revealAllBombs } from "../Helpers/revealAllBombs";
 
 export const setRevealCellReducer = (
   state: GameState,
@@ -19,6 +20,7 @@ export const setRevealCellReducer = (
   if (cell.isFlagged) return;
   cell.isRevealed = true;
   if (cell.isBomb) {
+    revealAllBombs(state.grid);
     state.gameOver = true;
   } else {
     if (cell.adjacentBombs === 0) {
