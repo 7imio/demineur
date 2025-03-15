@@ -23,6 +23,7 @@ const initialState: GameState = {
   height: 0,
   totalBombs: 0,
   width: 0,
+  flags: 0,
 };
 
 /**

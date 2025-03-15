@@ -13,5 +13,12 @@ export const setFlagCellReducer = (
     return;
   }
   if (cell.isRevealed) return;
+  if (!cell.isFlagged && state.flags === state.totalBombs) return;
+
   cell.isFlagged = !cell.isFlagged;
+  if (cell.isFlagged) {
+    state.flags++;
+  } else {
+    state.flags--;
+  }
 };
