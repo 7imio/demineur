@@ -1,1 +1,28 @@
 @import 'tailwindcss';
+
+@variant dark (&:where(.dark, .dark *));
+
+
+@theme {
+  --color-primary: var(--primary-light);
+  --color-background: var(--background-light)
+}
+
+@layer base {
+  .dark * {
+    --color-primary: var(--primary-dark);
+    --color-background: var(--background-dark);
+  }
+}
+
+html {
+  overflow: hidden;
+}
+
+:root {
+  --primary-light: #222222;
+  --primary-dark: #DDDDDD;
+
+  --background-light: #BBBBBB;
+  --background-dark: #444444;
+}
